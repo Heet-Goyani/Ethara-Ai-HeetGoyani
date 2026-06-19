@@ -1,7 +1,5 @@
 databases:
   - name: inventory-db
-    databaseName: inventory_db
-    user: postgres
     plan: free
 
 services:
@@ -34,9 +32,6 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: inventory-backend
-          property: url
+        sync: false
     plan: free
     rootDir: frontend
