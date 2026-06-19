@@ -22,10 +22,16 @@ services:
     rootDir: backend
 
   # React Frontend (served as a static site)
-  - type: static
+  - type: web
     name: inventory-frontend
+    runtime: static
     buildCommand: npm install && npm run build
     publishPath: dist
+    routes:
+      # Redirect all routing requests back to index.html for client-side routing
+      - type: rewrite
+        source: /*
+        destination: /index.html
     envVars:
       - key: VITE_API_URL
         fromService:
