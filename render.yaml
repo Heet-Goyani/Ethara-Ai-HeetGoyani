@@ -1,11 +1,10 @@
-services:
-  # PostgreSQL Database Service
-  - type: database
-    name: inventory-db
+databases:
+  - name: inventory-db
     databaseName: inventory_db
     user: postgres
     plan: free
 
+services:
   # FastAPI Backend Service
   - type: web
     name: inventory-backend
