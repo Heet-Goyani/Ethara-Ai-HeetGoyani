@@ -22,9 +22,8 @@ services:
     rootDir: backend
 
   # React Frontend (served as a static site)
-  - type: web
+  - type: static
     name: inventory-frontend
-    env: static
     buildCommand: npm install && npm run build
     publishPath: dist
     envVars:
